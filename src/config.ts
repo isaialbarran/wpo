@@ -20,8 +20,9 @@ export const SITE = {
 
   // Hero Section (Home Page) - Main content does not need to be translated for 8 languages by default
   hero: {
-    title: "Web Performance Optimization Lab",
-    subtitle: "Faster sites. Better rankings. More revenue.",
+    title: "Web Performance Optimization for Business Results",
+    subtitle:
+      "I help businesses turn website performance into SEO and revenue growth.",
     action: "View Publications", // Optional call to action text
     image: heroImage, // Hero image path
   },
@@ -29,6 +30,7 @@ export const SITE = {
   // Navigation
   nav: [
     { text: "Home", link: "/", key: "home" },
+    { text: "Services", link: "/services", key: "services" },
     { text: "Research", link: "/research", key: "research" },
     { text: "Achievements", link: "/achievements", key: "achievements" },
     { text: "Team", link: "/team", key: "team" },

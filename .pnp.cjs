@@ -30,6 +30,7 @@ const RAW_RUNTIME_STATE =
           ["@astrojs/check", "virtual:af6bb8bb18a2eff1a3a6a0aeb7f3a748750d250bdd75cf00de0d81ed8c93102e5f3917846919163734633a53ae7d362d148633a88014bc80a0bede99f3f871a2#npm:0.9.6"],\
           ["@astrojs/react", "virtual:af6bb8bb18a2eff1a3a6a0aeb7f3a748750d250bdd75cf00de0d81ed8c93102e5f3917846919163734633a53ae7d362d148633a88014bc80a0bede99f3f871a2#npm:4.4.2"],\
           ["@resvg/resvg-js", "npm:2.6.2"],\
+          ["@tailwindcss/typography", "virtual:af6bb8bb18a2eff1a3a6a0aeb7f3a748750d250bdd75cf00de0d81ed8c93102e5f3917846919163734633a53ae7d362d148633a88014bc80a0bede99f3f871a2#npm:0.5.19"],\
           ["@tailwindcss/vite", "virtual:af6bb8bb18a2eff1a3a6a0aeb7f3a748750d250bdd75cf00de0d81ed8c93102e5f3917846919163734633a53ae7d362d148633a88014bc80a0bede99f3f871a2#npm:4.1.18"],\
           ["@types/react", "npm:19.2.8"],\
           ["@types/react-dom", "virtual:af6bb8bb18a2eff1a3a6a0aeb7f3a748750d250bdd75cf00de0d81ed8c93102e5f3917846919163734633a53ae7d362d148633a88014bc80a0bede99f3f871a2#npm:19.2.3"],\
@@ -1872,6 +1873,29 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/unplugged/@tailwindcss-oxide-win32-x64-msvc-npm-4.1.18-57e49e344f/node_modules/@tailwindcss/oxide-win32-x64-msvc/",\
         "packageDependencies": [\
           ["@tailwindcss/oxide-win32-x64-msvc", "npm:4.1.18"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tailwindcss/typography", [\
+      ["npm:0.5.19", {\
+        "packageLocation": "../../.yarn/berry/cache/@tailwindcss-typography-npm-0.5.19-0259eda217-10c0.zip/node_modules/@tailwindcss/typography/",\
+        "packageDependencies": [\
+          ["@tailwindcss/typography", "npm:0.5.19"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:af6bb8bb18a2eff1a3a6a0aeb7f3a748750d250bdd75cf00de0d81ed8c93102e5f3917846919163734633a53ae7d362d148633a88014bc80a0bede99f3f871a2#npm:0.5.19", {\
+        "packageLocation": "./.yarn/__virtual__/@tailwindcss-typography-virtual-bba3598b12/3/.yarn/berry/cache/@tailwindcss-typography-npm-0.5.19-0259eda217-10c0.zip/node_modules/@tailwindcss/typography/",\
+        "packageDependencies": [\
+          ["@tailwindcss/typography", "virtual:af6bb8bb18a2eff1a3a6a0aeb7f3a748750d250bdd75cf00de0d81ed8c93102e5f3917846919163734633a53ae7d362d148633a88014bc80a0bede99f3f871a2#npm:0.5.19"],\
+          ["@types/tailwindcss", null],\
+          ["postcss-selector-parser", "npm:6.0.10"],\
+          ["tailwindcss", "npm:4.1.18"]\
+        ],\
+        "packagePeers": [\
+          "@types/tailwindcss",\
+          "tailwindcss"\
         ],\
         "linkType": "HARD"\
       }]\
@@ -9299,6 +9323,17 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["postcss-selector-parser", [\
+      ["npm:6.0.10", {\
+        "packageLocation": "../../.yarn/berry/cache/postcss-selector-parser-npm-6.0.10-a4d7aaa270-10c0.zip/node_modules/postcss-selector-parser/",\
+        "packageDependencies": [\
+          ["postcss-selector-parser", "npm:6.0.10"],\
+          ["cssesc", "npm:3.0.0"],\
+          ["util-deprecate", "npm:1.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["postcss-value-parser", [\
       ["npm:4.2.0", {\
         "packageLocation": "../../.yarn/berry/cache/postcss-value-parser-npm-4.2.0-3cef602a6a-10c0.zip/node_modules/postcss-value-parser/",\
@@ -10369,6 +10404,7 @@ const RAW_RUNTIME_STATE =
           ["@astrojs/check", "virtual:af6bb8bb18a2eff1a3a6a0aeb7f3a748750d250bdd75cf00de0d81ed8c93102e5f3917846919163734633a53ae7d362d148633a88014bc80a0bede99f3f871a2#npm:0.9.6"],\
           ["@astrojs/react", "virtual:af6bb8bb18a2eff1a3a6a0aeb7f3a748750d250bdd75cf00de0d81ed8c93102e5f3917846919163734633a53ae7d362d148633a88014bc80a0bede99f3f871a2#npm:4.4.2"],\
           ["@resvg/resvg-js", "npm:2.6.2"],\
+          ["@tailwindcss/typography", "virtual:af6bb8bb18a2eff1a3a6a0aeb7f3a748750d250bdd75cf00de0d81ed8c93102e5f3917846919163734633a53ae7d362d148633a88014bc80a0bede99f3f871a2#npm:0.5.19"],\
           ["@tailwindcss/vite", "virtual:af6bb8bb18a2eff1a3a6a0aeb7f3a748750d250bdd75cf00de0d81ed8c93102e5f3917846919163734633a53ae7d362d148633a88014bc80a0bede99f3f871a2#npm:4.1.18"],\
           ["@types/react", "npm:19.2.8"],\
           ["@types/react-dom", "virtual:af6bb8bb18a2eff1a3a6a0aeb7f3a748750d250bdd75cf00de0d81ed8c93102e5f3917846919163734633a53ae7d362d148633a88014bc80a0bede99f3f871a2#npm:19.2.3"],\

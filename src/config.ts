@@ -12,7 +12,7 @@ export const SITE = {
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
 
   // Lab Info
-  labName: "WPO Lab",
+  labName: "WPO for Business Results", // Lab or Group Name
   university: "Isai Albarran",
   logo: "/assets/logo-real.svg", // Logo path
   avatar: "/assets/logo-real.svg", // Avatar for SEO/Schema
@@ -20,9 +20,9 @@ export const SITE = {
 
   // Hero Section (Home Page) - Main content does not need to be translated for 8 languages by default
   hero: {
-    title: "Web Performance Optimization for Business Results",
+    title: "Speed is Revenue. I optimize the bridge between them.",
     subtitle:
-      "I help businesses turn website performance into SEO and revenue growth.",
+      "I help digital products eliminate technical friction to maximize SEO rankings and conversion rates.",
     action: "View Publications", // Optional call to action text
     image: heroImage, // Hero image path
   },
@@ -31,12 +31,11 @@ export const SITE = {
   nav: [
     { text: "Home", link: "/", key: "home" },
     { text: "Services", link: "/services", key: "services" },
-    { text: "Research", link: "/research", key: "research" },
-    { text: "Achievements", link: "/achievements", key: "achievements" },
-    { text: "Team", link: "/team", key: "team" },
-    { text: "Activities", link: "/activities", key: "activities" },
-    { text: "Join Us", link: "/join", key: "join" },
-    { text: "Search", link: "/search", key: "search" },
+    // { text: "Research", link: "/research", key: "research" },
+    { text: "About", link: "/about", key: "about" },
+    // { text: "Activities", link: "/activities", key: "activities" },
+    // { text: "Join Us", link: "/join", key: "join" },
+    // { text: "Search", link: "/search", key: "search" },
   ],
 
   // Custom Pages (Appended after 'Join Us')

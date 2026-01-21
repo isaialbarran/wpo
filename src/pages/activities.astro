@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
-import { Calendar, ArrowRight } from 'lucide-react';
+import Icon from '../components/Icon.astro';
 
 const activities = (await getCollection('activities')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 const news = (await getCollection('news')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
@@ -33,7 +33,7 @@ const news = (await getCollection('news')).sort((a, b) => b.data.date.valueOf() 
                 width={600}
               />
                  <div class="flex items-center text-white/90 text-sm absolute bottom-4 left-4 bg-black/30 px-3 py-1 rounded-full backdrop-blur-sm">
-                    <Calendar className="w-4 h-4 mr-2" />
+                    <Icon name="calendar" class="w-4 h-4 mr-2" />
                     <time>{activity.data.date.toISOString().split('T')[0]}</time>
                  </div>
             </div>

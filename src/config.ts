@@ -20,7 +20,7 @@ export const SITE = {
 
   // Hero Section (Home Page) - Main content does not need to be translated for 8 languages by default
   hero: {
-    title: "Speed is Revenue. I optimize the bridge between them.",
+    title: "Speed is Revenue - I optimize the bridge between them.",
     subtitle:
       "I help digital products eliminate technical friction to maximize SEO rankings and conversion rates.",
     action: "View Publications", // Optional call to action text

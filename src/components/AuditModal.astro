@@ -32,7 +32,8 @@ const ACCESS_KEY_FORM = import.meta.env.PUBLIC_ACCESS_KEY_FORM;
 
       <form id="audit-form" class="space-y-6">
         <!-- Web3Forms Config -->
-        <input type="hidden" name="access_key" value={ACCESS_KEY_FORM} />
+        <!-- DEBUG: Check if access_key has value in browser inspector -->
+        <input type="hidden" name="access_key" id="access-key-input" value={ACCESS_KEY_FORM} />
         <input type="hidden" name="subject" value="Nueva solicitud de Performance Audit" />
         <input type="hidden" name="from_name" value="WPO Audit Form" />
 
@@ -89,13 +90,14 @@ const ACCESS_KEY_FORM = import.meta.env.PUBLIC_ACCESS_KEY_FORM;
             What's your website URL?
           </label>
           <input
-            type="url"
+            type="text"
             id="audit-url"
             name="url"
             required
-            placeholder="https://example.com"
+            placeholder="example.com"
             class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
           />
+          <p id="url-error" class="hidden mt-1 text-sm text-red-600" data-i18n-key="audit.url.error">Please enter a valid website</p>
         </div>
 
         <!-- 5. Priority (Radio) -->
@@ -263,17 +265,24 @@ const ACCESS_KEY_FORM = import.meta.env.PUBLIC_ACCESS_KEY_FORM;
   }
 
   function validatePhone(phone) {
-    // Accepts formats: +1234567890, 123-456-7890, (123) 456-7890, 123 456 7890, etc.
-    const phoneRegex = /^[\+]?[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,4}[-\s\.]?[0-9]{1,9}$/;
-    const cleanedPhone = phone.replace(/[\s\-\.\(\)]/g, '');
-    return cleanedPhone.length >= 7 && phoneRegex.test(phone);
+    // Minimal validation: just check it has at least 7 digits
+    const digitsOnly = phone.replace(/\D/g, '');
+    return digitsOnly.length >= 7;
+  }
+
+  function validateUrl(url) {
+    // Minimal validation: just check it looks like a domain (contains a dot and no spaces)
+    const trimmed = url.trim();
+    return trimmed.length >= 4 && trimmed.includes('.') && !trimmed.includes(' ');
   }
 
   // Real-time validation
   const emailInput = document.getElementById('audit-email');
   const phoneInput = document.getElementById('audit-phone');
+  const urlInput = document.getElementById('audit-url');
   const emailError = document.getElementById('email-error');
   const phoneError = document.getElementById('phone-error');
+  const urlError = document.getElementById('url-error');
 
   emailInput?.addEventListener('blur', () => {
     if (emailInput.value && !validateEmail(emailInput.value)) {
@@ -295,13 +304,24 @@ const ACCESS_KEY_FORM = import.meta.env.PUBLIC_ACCESS_KEY_FORM;
     }
   });
 
+  urlInput?.addEventListener('blur', () => {
+    if (urlInput.value && !validateUrl(urlInput.value)) {
+      urlError.classList.remove('hidden');
+      urlInput.classList.add('border-red-500');
+    } else {
+      urlError.classList.add('hidden');
+      urlInput.classList.remove('border-red-500');
+    }
+  });
+
   // Form submit
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Validate email and phone before submit
+    // Validate email, phone and URL before submit
     const email = emailInput?.value || '';
     const phone = phoneInput?.value || '';
+    const url = urlInput?.value || '';
     let hasErrors = false;
 
     if (!validateEmail(email)) {
@@ -313,6 +333,12 @@ const ACCESS_KEY_FORM = import.meta.env.PUBLIC_ACCESS_KEY_FORM;
     if (!validatePhone(phone)) {
       phoneError.classList.remove('hidden');
       phoneInput.classList.add('border-red-500');
+      hasErrors = true;
+    }
+
+    if (!validateUrl(url)) {
+      urlError.classList.remove('hidden');
+      urlInput.classList.add('border-red-500');
       hasErrors = true;
     }
 
@@ -329,6 +355,10 @@ const ACCESS_KEY_FORM = import.meta.env.PUBLIC_ACCESS_KEY_FORM;
       // Get form data
       const formData = new FormData(form);
 
+      // DEBUG: Log access_key to verify it's set
+      const accessKey = formData.get('access_key');
+      console.log('Access key present:', !!accessKey, 'Length:', accessKey?.length || 0);
+
       // Send to Web3Forms
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -342,13 +372,14 @@ const ACCESS_KEY_FORM = import.meta.env.PUBLIC_ACCESS_KEY_FORM;
         formContainer.classList.add('hidden');
         successContainer.classList.remove('hidden');
       } else {
-        alert('Error sending form. Please try again.');
+        console.error('Web3Forms error:', result);
+        alert('Error: ' + (result.message || 'Unknown error. Please try again.'));
         submitBtn.disabled = false;
         submitBtn.textContent = originalText;
       }
     } catch (error) {
       console.error('Form error:', error);
-      alert('Error sending form. Please try again.');
+      alert('Network error. Please check your connection and try again.');
       submitBtn.disabled = false;
       submitBtn.textContent = originalText;
     }

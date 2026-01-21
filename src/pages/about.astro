@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import { SITE } from '../config';
+import profileImage from '../assets/profile.jpg';
+---
+
+<Layout title="About">
+  <div class="max-w-4xl mx-auto px-4 py-12 sm:py-20">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-blue-100 shadow-lg">
+        <Image
+          src={profileImage}
+          alt={SITE.author}
+          class="w-full h-full object-cover"
+          width={128}
+          height={128}
+        />
+      </div>
+      <h1 class="text-4xl font-bold text-gray-900 mb-2">{SITE.author}</h1>
+      <p class="text-xl text-blue-600 font-medium">{SITE.labName}</p>
+    </div>
+
+    <!-- Bio Section -->
+    <div class="prose prose-lg max-w-none mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4" data-i18n-key="about.title">About Me</h2>
+      <p class="text-gray-600 leading-relaxed" data-i18n-key="about.bio1">
+        I specialize in Web Performance Optimization (WPO), helping businesses transform their website speed into measurable SEO improvements and revenue growth. With years of experience in Core Web Vitals, page speed optimization, and technical SEO, I provide actionable strategies that deliver real business results.
+      </p>
+      <p class="text-gray-600 leading-relaxed" data-i18n-key="about.bio2">
+        My approach combines deep technical expertise with business understanding, ensuring that performance improvements translate directly into better user experience, higher search rankings, and increased conversions.
+      </p>
+    </div>
+
+    <!-- Expertise Section -->
+    <div class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6" data-i18n-key="about.expertise">Areas of Expertise</h2>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+          <h3 class="font-semibold text-gray-900 mb-2" data-i18n-key="about.cwv">Core Web Vitals</h3>
+          <p class="text-gray-600 text-sm" data-i18n-key="about.cwvDesc">LCP, INP, CLS optimization for better user experience and SEO rankings.</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+          <h3 class="font-semibold text-gray-900 mb-2" data-i18n-key="about.seo">Technical SEO</h3>
+          <p class="text-gray-600 text-sm" data-i18n-key="about.seoDesc">Performance-focused SEO strategies that improve crawlability and indexing.</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+          <h3 class="font-semibold text-gray-900 mb-2" data-i18n-key="about.audits">Performance Audits</h3>
+          <p class="text-gray-600 text-sm" data-i18n-key="about.auditsDesc">Comprehensive analysis to identify bottlenecks and optimization opportunities.</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+          <h3 class="font-semibold text-gray-900 mb-2" data-i18n-key="about.implementation">Implementation</h3>
+          <p class="text-gray-600 text-sm" data-i18n-key="about.implementationDesc">Hands-on optimization of images, JavaScript, CSS, and server configurations.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact CTA -->
+    <div class="bg-blue-50 rounded-2xl p-8 text-center border border-blue-100">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3" data-i18n-key="about.cta">Let's Work Together</h2>
+      <p class="text-gray-600 mb-6" data-i18n-key="about.ctaDesc">Interested in improving your website's performance?</p>
+      <a
+        href="https://www.linkedin.com/in/isai-albarran/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-medium rounded-full hover:bg-blue-700 transition-colors"
+        data-i18n-key="about.ctaButton"
+      >
+        Get in Touch
+      </a>
+    </div>
+  </div>
+</Layout>

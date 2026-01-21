@@ -55,11 +55,14 @@ const getIcon = (key: string) => iconMap[key] || Sparkles;
               </a>
             );
           }
+          const isExternal = item.link.startsWith('http');
           return (
-            <a 
-              href={item.link} 
+            <a
+              href={item.link}
               class="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors"
               data-i18n-key={`nav.${item.key}`}
+              target={isExternal ? "_blank" : undefined}
+              rel={isExternal ? "noopener noreferrer" : undefined}
             >
               {item.text}
             </a>
@@ -151,17 +154,22 @@ const getIcon = (key: string) => iconMap[key] || Sparkles;
     
     <!-- Scrollable Menu Content -->
     <nav class="flex-1 overflow-y-auto px-6 py-8 flex flex-col gap-2 bg-white">
-      {nav.map((item) => (
-        <a 
-          href={item.link} 
-          class="flex items-center justify-between w-full py-4 px-4 text-lg font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-xl transition-all border-b border-gray-100 last:border-0"
-          data-i18n-key={`nav.${item.key}`}
-          onclick="window.closeMobileMenu()"
-        >
-          <span>{item.text}</span>
-          <ChevronDown className="w-5 h-5 -rotate-90 text-gray-400" />
-        </a>
-      ))}
+      {nav.map((item) => {
+        const isExternal = item.link.startsWith('http');
+        return (
+          <a
+            href={item.link}
+            class="flex items-center justify-between w-full py-4 px-4 text-lg font-medium text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-xl transition-all border-b border-gray-100 last:border-0"
+            data-i18n-key={`nav.${item.key}`}
+            target={isExternal ? "_blank" : undefined}
+            rel={isExternal ? "noopener noreferrer" : undefined}
+            onclick="window.closeMobileMenu()"
+          >
+            <span>{item.text}</span>
+            <ChevronDown className="w-5 h-5 -rotate-90 text-gray-400" />
+          </a>
+        );
+      })}
       
       <!-- Custom Pages Mobile -->
       {customPages && customPages.map((item) => (

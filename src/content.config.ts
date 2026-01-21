@@ -147,6 +147,16 @@ const activities = defineCollection({
   }),
 });
 
+const services = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/services" }),
+  schema: ({ image }) => z.object({
+    title: z.string(),
+    order: z.number().default(100),
+    cover: image().optional(),
+    description: z.string().optional(),
+  }),
+});
+
 export const collections = {
   publications,
   books,
@@ -157,4 +167,5 @@ export const collections = {
   softwares,
   honors,
   activities,
+  services,
 };

@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
-import { ArrowRight, Calendar } from 'lucide-react';
+import Icon from '../components/Icon.astro';
 import { SITE } from '../config';
 
 const services = (await getCollection('services'))
@@ -70,7 +70,7 @@ const services = (await getCollection('services'))
       <div class="flex justify-between items-end mb-8">
         <h2 class="text-3xl font-bold text-gray-900" data-i18n-key="section.services">Services</h2>
         <a href="/services" class="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1 group">
-          <span data-i18n-key="section.servicesViewAll">View all</span> <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          <span data-i18n-key="section.servicesViewAll">View all</span> <Icon name="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </a>
       </div>
 

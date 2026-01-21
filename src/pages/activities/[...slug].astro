@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
-import { Calendar, ArrowLeft } from 'lucide-react';
+import Icon from '../../components/Icon.astro';
 
 export async function getStaticPaths() {
   const activities = await getCollection('activities');
@@ -18,7 +18,7 @@ const { Content } = await render(activity);
 <Layout title={activity.data.title}>
   <article class="max-w-4xl mx-auto px-4 py-12 sm:py-20">
     <a href="/activities" class="inline-flex items-center text-sm text-gray-500 hover:text-blue-600 mb-8 transition-colors">
-      <ArrowLeft className="w-4 h-4 mr-1" /> Back to Activities
+      <Icon name="arrow-left" class="w-4 h-4 mr-1" /> Back to Activities
     </a>
 
     <header class="mb-12">
@@ -26,7 +26,7 @@ const { Content } = await render(activity);
       
       <div class="flex items-center gap-4 text-gray-500 mb-8">
         <div class="flex items-center gap-2">
-          <Calendar className="w-4 h-4" />
+          <Icon name="calendar" class="w-4 h-4" />
           <time>{activity.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
         </div>
       </div>

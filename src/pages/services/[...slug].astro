@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
-import { ArrowLeft } from 'lucide-react';
+import Icon from '../../components/Icon.astro';
 
 export async function getStaticPaths() {
   const services = await getCollection('services');
@@ -18,7 +18,7 @@ const { Content } = await render(service);
 <Layout title={service.data.title}>
   <article class="max-w-4xl mx-auto px-4 py-12 sm:py-20">
     <a href="/services" class="inline-flex items-center text-sm text-gray-500 hover:text-blue-600 mb-8 transition-colors">
-      <ArrowLeft className="w-4 h-4 mr-1" /> Back to Services
+      <Icon name="arrow-left" class="w-4 h-4 mr-1" /> Back to Services
     </a>
 
     <header class="mb-12">

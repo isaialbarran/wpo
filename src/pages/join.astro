@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Mail, GraduationCap, BookOpen, Code } from 'lucide-react';
+import Icon from '../components/Icon.astro';
 import { SITE } from '../config';
 ---
 
@@ -16,7 +16,7 @@ import { SITE } from '../config';
     <div class="grid gap-8 md:grid-cols-3 mb-16">
       <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
         <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4 text-blue-600">
-          <GraduationCap className="w-6 h-6" />
+          <Icon name="graduation-cap" class="w-6 h-6" />
         </div>
         <h3 class="text-xl font-bold text-gray-900 mb-2">PhD Students</h3>
         <p class="text-gray-600 text-sm mb-4">
@@ -31,7 +31,7 @@ import { SITE } from '../config';
 
       <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
         <div class="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center mb-4 text-green-600">
-          <BookOpen className="w-6 h-6" />
+          <Icon name="book-open" class="w-6 h-6" />
         </div>
         <h3 class="text-xl font-bold text-gray-900 mb-2">Master Students</h3>
         <p class="text-gray-600 text-sm mb-4">
@@ -46,7 +46,7 @@ import { SITE } from '../config';
 
       <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
         <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center mb-4 text-purple-600">
-          <Code className="w-6 h-6" />
+          <Icon name="code" class="w-6 h-6" />
         </div>
         <h3 class="text-xl font-bold text-gray-900 mb-2">Undergraduates</h3>
         <p class="text-gray-600 text-sm mb-4">
@@ -68,7 +68,7 @@ import { SITE } from '../config';
       </p>
       
       <a href={`mailto:${SITE.email}`} class="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-full font-medium hover:bg-blue-700 transition-colors">
-        <Mail className="w-5 h-5" />
+        <Icon name="mail" class="w-5 h-5" />
         <span data-i18n-key="join.sendEmail">Send Email</span>
       </a>
     </div>
